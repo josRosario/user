@@ -9,3 +9,12 @@ export const createAddress = async (req, res) => {
         
     }
 }
+
+export const updateAddress = async (req, res) => {
+    try {
+        const result = await user.updateUser(req.params.id, req.body)
+        return res.status(200).json({ status: 200, data: result, message: "Datos actualizados correctamente" });
+    } catch (error) {
+        return res.status(400).json({ status: 400, message: error.message });               
+    }
+}
