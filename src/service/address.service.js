@@ -7,3 +7,19 @@ export const createAddress = async (address_data) => {
         throw new Error("Hubo un error al agregar la direccion", error.message)
     }
 }
+
+
+
+export const updateAddress = async (id, address_data) => {
+    try {
+        const address = await Address.findByPk(id);
+
+        if (!address){
+            throw Error('Direccion no encontrada');
+        }
+        return await Address.update(address_data);
+    } catch (error) {
+        throw Error("Hubo un error al actualizar los datos u obtener la direccion", error);
+
+    }
+}
