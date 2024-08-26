@@ -20,6 +20,9 @@ const Person = db.define("persons", {
     email:{
         type:sequelize.DataTypes.STRING
     },
+    password:{
+        type:sequelize.DataTypes.STRING
+    },
     enabled:{
         type:sequelize.DataTypes.BOOLEAN,
         defaultValue:true

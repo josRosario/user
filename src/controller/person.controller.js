@@ -17,3 +17,13 @@ export const createPerson = async (req, res) => {
         
     }
 }
+
+export const login = async (req, res) => {
+    try {
+        const result = await person.login(req.body);
+        return res.status(201).json({ status: 201, data: result, message: "Ha iniciado sesion" }); 
+
+    } catch (error) {
+        return res.status(400).json({ status: 400, message: error.message });        
+    }
+}
