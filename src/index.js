@@ -4,8 +4,10 @@ import db from "./config/connection.js";
 import router from "./route/route.js";
 import bodyParser from "body-parser";
 import cors from "cors"
-dotenv.config(); 
+import { createProduct } from "./controller/product.controller.js";
 
+dotenv.config(); 
+import kafkaConfig from "./config/kafkaConfig.js";
 const app = express();
 
 const corsOptions = {
@@ -21,6 +23,14 @@ app.use(router)
 
 
 const port = process.env.PORT || 4001
+const kafka = new kafkaConfig();
+kafka.consume("new-prodct", ( value) => {
+//    createAddress(value)
+createProduct(value)
+
+//console.log(value, ' this is the product...')
+})
+
 
 try {
     await db.authenticate();

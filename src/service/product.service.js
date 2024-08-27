@@ -1,4 +1,4 @@
-/*import Product from "../model/product.js";
+import Product from "../model/product.js";
 
 
 export const createProduct = async (product_data) => {
@@ -8,4 +8,3 @@ export const createProduct = async (product_data) => {
         throw new Error("Hubo un error al agregar la direccion", error.message)
     }
 }
-*/

@@ -7,7 +7,7 @@ class kafkaConfig {
             brokers:['localhost:9093']
         })
         this.prodecer = this.kafka.producer();
-        this.consumer = this.kafka.consumer({groupId:'test-group'});
+        this.consumer = this.kafka.consumer({groupId:'user'});
     }
 
     async prodece(topic, message){
@@ -33,6 +33,7 @@ class kafkaConfig {
       
           await this.consumer.run({
             eachMessage: async ({ topic, partition, message }) => {
+              console.log(topic)
               const value = message.value.toString();
               callback(value);
             },

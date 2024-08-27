@@ -9,7 +9,7 @@ export const createAddress = async (req, res) => {
         const message = [
             {key:'key', value: JSON.stringify(result)}
         ]
-        kafka.prodece("my-topic", message);
+        kafka.prodece("new-address", message);
         return res.status(201).json({ status: 201, data: result, message: "La direccion se ha creado exitosamente" }); 
     } catch (error) {
         return res.status(400).json({ status: 400, message: error.message });
