@@ -3,9 +3,18 @@ import dotenv from "dotenv";
 import db from "./config/connection.js";
 import router from "./route/route.js";
 import bodyParser from "body-parser";
+import cors from "cors"
 dotenv.config(); 
 
 const app = express();
+
+const corsOptions = {
+    origin: '*', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(router)

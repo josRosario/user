@@ -35,7 +35,8 @@ export const login = async (person_data) => {
         if (password) {
             const token = jwt.sign(
                 {
-                    id: person.dataValues.id
+                    id: person.dataValues.id,
+                    name: person.dataValues.name
                 },
                 ' "thllos@3kdkdkd8dd"'
             )
